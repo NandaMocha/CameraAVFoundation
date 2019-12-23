@@ -12,6 +12,9 @@
 		043BE14E230ECA2E004D12B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043BE14C230ECA2E004D12B1 /* Main.storyboard */; };
 		043BE150230ECA2F004D12B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043BE14F230ECA2F004D12B1 /* Assets.xcassets */; };
 		043BE153230ECA2F004D12B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043BE151230ECA2F004D12B1 /* LaunchScreen.storyboard */; };
+		043BE15B230ED734004D12B1 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BE15A230ED734004D12B1 /* CameraViewController.swift */; };
+		043BE15D230EDD38004D12B1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043BE15C230EDD38004D12B1 /* DataManager.swift */; };
+		043BE161230FE276004D12B1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043BE160230FE276004D12B1 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,10 @@
 		043BE14F230ECA2F004D12B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		043BE152230ECA2F004D12B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043BE154230ECA2F004D12B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		043BE15A230ED734004D12B1 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		043BE15C230EDD38004D12B1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		043BE15E230FE274004D12B1 /* CobaCamera.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CobaCamera.entitlements; sourceTree = "<group>"; };
+		043BE160230FE276004D12B1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043BE161230FE276004D12B1 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,7 @@
 			children = (
 				043BE147230ECA2E004D12B1 /* CobaCamera */,
 				043BE146230ECA2E004D12B1 /* Products */,
+				043BE15F230FE276004D12B1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +63,25 @@
 		043BE147230ECA2E004D12B1 /* CobaCamera */ = {
 			isa = PBXGroup;
 			children = (
+				043BE15E230FE274004D12B1 /* CobaCamera.entitlements */,
 				043BE148230ECA2E004D12B1 /* AppDelegate.swift */,
 				043BE14A230ECA2E004D12B1 /* ViewController.swift */,
 				043BE14C230ECA2E004D12B1 /* Main.storyboard */,
 				043BE14F230ECA2F004D12B1 /* Assets.xcassets */,
 				043BE151230ECA2F004D12B1 /* LaunchScreen.storyboard */,
 				043BE154230ECA2F004D12B1 /* Info.plist */,
+				043BE15A230ED734004D12B1 /* CameraViewController.swift */,
+				043BE15C230EDD38004D12B1 /* DataManager.swift */,
 			);
 			path = CobaCamera;
+			sourceTree = "<group>";
+		};
+		043BE15F230FE276004D12B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				043BE160230FE276004D12B1 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +116,14 @@
 				TargetAttributes = {
 					043BE144230ECA2E004D12B1 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -136,7 +164,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				043BE14B230ECA2E004D12B1 /* ViewController.swift in Sources */,
+				043BE15D230EDD38004D12B1 /* DataManager.swift in Sources */,
 				043BE149230ECA2E004D12B1 /* AppDelegate.swift in Sources */,
+				043BE15B230ED734004D12B1 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +312,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CobaCamera/CobaCamera.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9NAU7R3577;
 				INFOPLIST_FILE = CobaCamera/Info.plist;
@@ -300,6 +331,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CobaCamera/CobaCamera.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9NAU7R3577;
 				INFOPLIST_FILE = CobaCamera/Info.plist;
